@@ -1,5 +1,5 @@
 # Tag injector
-Chrome extension used for injecting ad tags into the website.
+Chrome extension used for injecting ad tags into the website. @2018
 
 ## Instalation
 * Download the repository and unzip it locally
