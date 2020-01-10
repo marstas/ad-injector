@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/popup.js"></script>
 </head>
-
 <body>
-    <div id="header-wrapper">
-        <button id="reload">Refresh site</button>
-        <div id="extension-title">Ad Injector</div>
-        <img id="logo" height="25px" width="25px" src="img/48.png">
+    <div id="button-wrapper">
+        <div id="inject" class="btn select" selected>Inject</div>
+        <div id="respond" class="btn select">Respond</div>
+        <input id="on-off" class="btn" value="on" type="button">
+        <img id="reload" src="img/reload.png">
     </div>
-    <div id="main-wrapper">
-        <button id="btn-inject">Inject</button>
-        <form id="hide-iframe-form">
+    <div id="inject-wrapper">
+        <form>
+            <input id="radio-bn" type="radio" name="bn-mid" value="bn" checked>
+            <label for="radio-bn">BN &nbsp;&nbsp;</label>
+            <input id="radio-mid" type="radio" name="bn-mid" value="mid">
+            <label for="radio-mid">MID &nbsp;&nbsp;</label>
             <input type="checkbox" id="checkbox-hide-iframe">
             <label for="checkbox-hide-iframe">Hide iframe</label>
         </form>
         <div id="quickies">
-            <a>BN-Javascript</a> &nbsp;|&nbsp;
-            <a>BN-Iframe</a> &nbsp;|&nbsp;
-            <a>MID-Sync</a> &nbsp;|&nbsp;
-            <a>MID-Async</a>
+            <a>compoundSeqNo=1</a> &nbsp;|&nbsp;
+            <a>singleTag=1</a> &nbsp;|&nbsp;
+            <a>msrc=1</a>
         </div>
-        <textarea id="tag-html" placeholder="Insert tag HTML code.&#10;Single quotes are not allowed." spellcheck="false"></textarea>
+        <input id="bn-mid" placeholder="insert BN" spellcheck="false">
+        <button id="btn-go">Go</button>
         <div id="info-message-inject"></div>
-        <button id="sizes">Placement size list</button>
+        <button id="sizes">Show placement sizes</button>
         <div id="size-list" class="hidden">
             <div>
                 <input id="input-size" placeholder="insert size (WxH)" spellcheck="false">
@@ -48,6 +50,27 @@
             </select>
         </div>
     </div>
-</body>
 
+    <div id="respond-wrapper">
+        <div id="respond-set">
+            <input id="string-to-match" placeholder="string to match in the request" spellcheck="false">
+            <input id="url-to-file" placeholder="URL to JS file, tag ID (BN), or 404" spellcheck="false">
+            <span>}</span>
+            <button id="btn-set">Set</button>
+            <!--todo-->
+            <input id="local-file" type="file" accept=".js" placeholder="local JS file reference" spellcheck="false" class="hidden">
+            <!--/todo-->
+        </div>
+        <div id="info-message-respond"></div>
+        <table id="respond-rules">
+            <thead>
+                <tr>
+                    <th>Request match</th>
+                    <th>Respond with</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</body>
 </html>

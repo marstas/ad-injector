@@ -1,14 +1,14 @@
 {
 	"manifest_version": 2,
-	"name": "Ad Injector",
-	"version": "3.0.0",
-	"description": "Tool for injecting ads into websites",
+	"name": "Tag Injector",
+	"version": "1.0.0",
+	"description": "A tool designed to inject ad tags into the website and modify web requests for JS files",
 	"icons": {
 		"16": "img/48.png",
 		"48": "img/48.png"
 	},
 	"content_scripts": [{
-		"matches": ["http://*/*", "https://*/*"],
+		"matches": ["<all_urls>"],
 		"js": ["js/content.js"],
 		"css": ["css/content.css"]
 	}],
@@ -17,11 +17,17 @@
 	},
 	"permissions": [
 		"storage",
-		"activeTab"
+		"tabs",
+		"activeTab",
+		"webRequest",
+		"webRequestBlocking",
+		"*://*/*",
+		"<all_urls>"
 	],
 	"browser_action": {
-		"default_icon": "img/48.png",
-		"default_title": "Ad Injector",
+		"default_icon": "img/green16.png",
+		"default_title": "Tag Injector",
 		"default_popup": "popup.html"
-	}
+	},
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
